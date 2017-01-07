@@ -14,7 +14,14 @@ router.post('/', function(req, res) {
         image_url: req.body.imgUrl
     });
     console.log('Adding a new pet:', newPet);
-    res.sendStatus(200);
+    newPet.save(function(err) {
+        if(err) {
+            console.log(err);
+            res.sendStatus(500);
+        } else {
+            res.sendStatus(200);
+        }
+    });
 });
 
 module.exports = router;
