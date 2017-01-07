@@ -5,7 +5,7 @@ var mongoose = require('mongoose');
 var petsRouter = require('./routers/petsRouter');
 var app = express();
 
-
+mongoose.connect('mongodb://localhost:27017/petsDb');
 
 app.use('/pets', petsRouter);
 
