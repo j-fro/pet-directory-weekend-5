@@ -1,0 +1,11 @@
+<div class="pet-display">
+    <div ng-repeat="pet in pets">
+        <div>
+            {{ pet.name }}
+            {{ pet.animal }}
+            {{ pet.age }}
+            <img ng-src="{{ pet.image_url }}">
+            <button type="button" ng-click="deletePet(pet._id)">Delete</button>
+        </div>
+    </div>
+</div>
