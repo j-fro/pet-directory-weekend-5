@@ -24,6 +24,14 @@ petsApp.controller('HomeController', ['$scope', '$http', function($scope, $http)
             });
     };
 
+    $scope.deletePet = function(petId) {
+        $http.delete('/pets/' + petId)
+            .then(function(results) {
+                console.log('Back from server', results);
+                $scope.getPets();
+            });
+    };
+
     // Perform initial getPets() on page load
     $scope.getPets();
 }]);
