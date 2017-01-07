@@ -12,6 +12,18 @@ petsApp.controller('HomeController', ['$scope', '$http', function($scope, $http)
         $http.post('/pets', newPet)
             .then(function(results) {
                 console.log('Back from server:', results);
+                $scope.getPets();
             });
     };
+
+    $scope.getPets = function() {
+        $http.get('/pets')
+            .then(function(results) {
+                console.log('Back from server:', results);
+                $scope.pets = results.data;
+            });
+    };
+
+    // Perform initial getPets() on page load
+    $scope.getPets();
 }]);
