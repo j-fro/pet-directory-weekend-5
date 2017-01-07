@@ -12,7 +12,7 @@ app.set('port', (process.env.PORT || 8000));
 
 app.get('/', function(req, res) {
     console.log('Hit base route');
-    res.sendFile('../public/views/index.html');
+    res.sendFile(path.join(__dirname, '../public/views/index.html'));
 });
 
 app.listen(app.get('port'), function() {
