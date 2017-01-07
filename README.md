@@ -1,6 +1,17 @@
+Usage
+=====
+
+Technologies
+============
+MEAN stack:
+* Angular.js
+* Express.js
+* Node.js
+* Mongodb/mongoose
 
 
-
+Direction
+=========
 #Welcome to your LAST weekend challenge!
 
 In this challenge, you will be creating a Pet Application that allows a user to create Pets records that are stored in a database. The list will be displayed on the DOM.
