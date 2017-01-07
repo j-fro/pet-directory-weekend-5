@@ -40,4 +40,18 @@ router.post('/', function(req, res) {
     });
 });
 
+router.delete('/:id', function(req, res) {
+    /* Deletes a pet from the db based on the parameter passed in the route
+    Sends code 200 on a successful delete and 500 on any error */
+    console.log('Deleting a pet with id:', req.params.id);
+    Pet.findByIdAndRemove(req.params.id, function(err) {
+        if(err) {
+            console.log(err);
+            res.sendStatus(500);
+        } else {
+            res.sendStatus(200);
+        }
+    });
+});
+
 module.exports = router;
