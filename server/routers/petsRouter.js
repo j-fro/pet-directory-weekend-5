@@ -5,7 +5,23 @@ var Pet = require('../models/pets.js');
 
 router.use(bodyParser.json());
 
+router.get('/', function(req, res) {
+    /* Gets all pets from the database and returns them to the client
+    Sends an array of pets on a successful query and code 500 on any error */
+    console.log('Hit get pets');
+    Pet.find({}, function(err, results) {
+        if(err) {
+            console.log(err);
+            res.sendStatus(500);
+        } else {
+            res.send(results);
+        }
+    });
+});
+
 router.post('/', function(req, res) {
+    /* Creates and saves a new pet based on req.body data
+    Sends code 200 on a successful insert and 500 on any error */
     console.log('Hit add pets with', req.body);
     var newPet = Pet({
         name: req.body.name,
