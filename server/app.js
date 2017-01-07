@@ -10,6 +10,11 @@ app.use('/pets', petsRouter);
 
 app.set('port', (process.env.PORT || 8000));
 
+app.get('/', function(req, res) {
+    console.log('Hit base route');
+    res.sendFile('../public/views/index.html');
+});
+
 app.listen(app.get('port'), function() {
     console.log('Server listening on port', app.get('port'));
 });
