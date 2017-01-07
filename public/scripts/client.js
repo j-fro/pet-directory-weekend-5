@@ -27,7 +27,7 @@ petsApp.controller('ShowPetsController', ['$scope', '$http', function($scope, $h
                 $scope.pets = results.data;
             });
     };
-    
+
     $scope.deletePet = function(petId) {
         $http.delete('/pets/' + petId)
             .then(function(results) {
@@ -40,7 +40,7 @@ petsApp.controller('ShowPetsController', ['$scope', '$http', function($scope, $h
     $scope.getPets();
 }]);
 
-petsApp.controller('HomeController', ['$scope', '$http', function($scope, $http) {
+petsApp.controller('AddPetsController', ['$scope', '$http', function($scope, $http) {
     $scope.addPet = function() {
         var newPet = {
             name: $scope.nameIn,
@@ -52,9 +52,10 @@ petsApp.controller('HomeController', ['$scope', '$http', function($scope, $http)
         $http.post('/pets', newPet)
             .then(function(results) {
                 console.log('Back from server:', results);
-                $scope.getPets();
             });
     };
+}]);
 
-
+petsApp.controller('HomeController', ['$scope', '$http', function($scope, $http) {
+    console.log('ng home');
 }]);
