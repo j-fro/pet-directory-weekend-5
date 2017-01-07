@@ -3,9 +3,17 @@ var router = express.Router();
 var bodyParser = require('body-parser');
 var Pet = require('../models/pets.js');
 
-router.post('/', function(req, res) {
-    console.log('Hit add pets');
+router.use(bodyParser.json());
 
+router.post('/', function(req, res) {
+    console.log('Hit add pets with', req.body);
+    var newPet = Pet({
+        name: req.body.name,
+        animal: req.body.animal,
+        age: Number(req.body.age),
+        image_url: req.body.imgUrl
+    });
+    console.log('Adding a new pet:', newPet);
     res.sendStatus(200);
 });
 
