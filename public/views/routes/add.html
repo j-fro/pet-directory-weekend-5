@@ -1,13 +1,28 @@
-<div class="pet-input">
-    Name: <input type="text" ng-model="nameIn">
-    <select ng-model="animalIn">
-        <option value="Dog">Dog</option>
-        <option value="Cat">Cat</option>
-        <option value="Bird">Bird</option>
-        <option value="Snake">Snake</option>
-        <option value="Turtle">Turtle</option>
-    </select>
-    Age: <input type="number" ng-model="ageIn">
-    Image URL: <input type="text" ng-model="imgUrlIn">
-    <button type="button" ng-click="addPet()">Add Pet</button>
+<div class="pet-input" ng-click="addSuccess=false">
+    <div class="form-group">
+        <label>Name</label>
+        <input type="text" class="form-control" ng-model="nameIn" ng-focus="addSuccess=false">
+    </div>
+    <div class="form-group">
+        <label>Type</label>
+        <select class="form-control" ng-model="animalIn">
+            <option value="Dog">Dog</option>
+            <option value="Cat">Cat</option>
+            <option value="Bird">Bird</option>
+            <option value="Snake">Snake</option>
+            <option value="Turtle">Turtle</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label>Age</label>
+        <input type="number" class="form-control" ng-model="ageIn">
+    </div>
+    <div class="form-group">
+        <label>Image URL</label>
+        <input type="text" class="form-control" ng-model="imgUrlIn">
+    </div>
+    <button type="button" class="form-control btn btn-primary" ng-click="addPet()">Add Pet</button>
+</div>
+<div ng-if="addSuccess" class="alert alert-success">
+    <p>Successfully added your pet</p>
 </div>

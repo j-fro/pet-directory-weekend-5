@@ -52,6 +52,13 @@ petsApp.controller('AddPetsController', ['$scope', '$http', function($scope, $ht
         $http.post('/pets', newPet)
             .then(function(results) {
                 console.log('Back from server:', results);
+                if (results.status === 200) {
+                    $scope.nameIn = undefined;
+                    $scope.animalIn = undefined;
+                    $scope.ageIn = undefined;
+                    $scope.imgUrlIn = undefined;
+                    $scope.addSuccess = true;
+                }
             });
     };
 }]);
