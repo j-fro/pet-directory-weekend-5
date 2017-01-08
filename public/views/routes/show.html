@@ -1,11 +1,19 @@
 <div class="pet-display">
-    <div ng-repeat="pet in pets">
-        <div class="col-xs-6 col-s-4 col-md-3">
-            <h3>{{ pet.name }}</h3>
-            <p class="col-xs-9">{{ pet.age }} year old {{ pet.animal }}</p>
-            <button type="button" class="col-xs-3 btn btn-danger" ng-click="deletePet(pet._id)">Delete</button>
-            <img class="img-responsive col-xs-12" ng-src="{{ pet.image_url }}">
+    <div ng-repeat="pet in pets" class="">
+        <div class="panel panel-default col-xs-6 col-md-4 col-lg-3">
+            <div class="panel-heading">
+                <h3 class="panel-title col-xs-10">{{ pet.name }}</h3>
+                <button type="button" class="btn btn-danger col-xs-2" ng-click="deletePet(pet._id)"><i class="glyphicon glyphicon-remove-circle"></i></button>
+            </div>
+            <div class="panel-body">
+                <p>{{ pet.age }} year old {{ pet.animal }}</p>
+                <img class="img-responsive col-xs-12" ng-src="{{ pet.image_url }}">
+            </div>
+            <div class="panel-footer">
+
+            </div>
         </div>
-        <div class="clearfix visible-xs-block"></div>
+        <div class="clearfix" ng-if="$index % 4 == 3"></div>
     </div>
+
 </div>
