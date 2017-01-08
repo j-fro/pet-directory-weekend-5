@@ -37,15 +37,6 @@ petsApp.controller('ShowPetsController', ['$scope', '$http', function($scope, $h
             });
     };
 
-    $scope.filterPets = function() {
-        console.log("filtering to:", $scope.animalFilter);
-        // Filter $scope.pets to only the pets where pet.animal is equal to
-        // the current value of the animalFilter select
-        $scope.pets = $scope.pets.filter(function(pet) {
-            return pet.animal === $scope.animalFilter;
-        });
-    };
-
     $scope.sortPets = function(direction) {
         console.log('Sorting by:', $scope.sortType, direction);
         $scope.pets = $scope.pets.sort(function(a, b) {
