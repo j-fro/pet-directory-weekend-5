@@ -1,4 +1,14 @@
 <div class="pet-display">
+    <div class="navbar form-inline">
+        <select class="form-control" ng-model="animalFilter" ng-change="filterPets()">
+            <option value="Dog">Dog</option>
+            <option value="Cat">Cat</option>
+            <option value="Bird">Bird</option>
+            <option value="Snake">Snake</option>
+            <option value="Turtle">Turtle</option>
+        </select>
+        <button type="button" class="btn btn-link" ng-click="getPets()"><i class="glyphicon glyphicon-remove"></i></button>
+    </div>
     <div ng-repeat="pet in pets" class="">
         <div class="n col-xs-6 col-md-4 col-lg-3">
             <div>

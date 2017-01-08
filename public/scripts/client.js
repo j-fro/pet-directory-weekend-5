@@ -25,6 +25,7 @@ petsApp.controller('ShowPetsController', ['$scope', '$http', function($scope, $h
             .then(function(results) {
                 console.log('Back from server:', results);
                 $scope.pets = results.data;
+                $scope.animalFilter = undefined;
             });
     };
 
@@ -34,6 +35,15 @@ petsApp.controller('ShowPetsController', ['$scope', '$http', function($scope, $h
                 console.log('Back from server', results);
                 $scope.getPets();
             });
+    };
+
+    $scope.filterPets = function() {
+        console.log("filtering to:", $scope.animalFilter);
+        // Filter $scope.pets to only the pets where pet.animal is equal to
+        // the current value of the animalFilter select
+        $scope.pets = $scope.pets.filter(function(pet) {
+            return pet.animal === $scope.animalFilter;
+        });
     };
 
     // Perform initial getPets() on page load
