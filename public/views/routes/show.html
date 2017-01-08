@@ -2,9 +2,10 @@
     <div ng-repeat="pet in pets">
         <div class="col-xs-6 col-s-4 col-md-3">
             <h3>{{ pet.name }}</h3>
-            <p>{{ pet.age }} year old {{ pet.animal }}</p>
-            <img class="img-responsive" ng-src="{{ pet.image_url }}">
-            <button type="button" ng-click="deletePet(pet._id)">Delete</button>
+            <p class="col-xs-9">{{ pet.age }} year old {{ pet.animal }}</p>
+            <button type="button" class="col-xs-3 btn btn-danger" ng-click="deletePet(pet._id)">Delete</button>
+            <img class="img-responsive col-xs-12" ng-src="{{ pet.image_url }}">
         </div>
+        <div class="clearfix visible-xs-block"></div>
     </div>
 </div>

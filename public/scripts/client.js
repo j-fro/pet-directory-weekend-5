@@ -41,6 +41,7 @@ petsApp.controller('ShowPetsController', ['$scope', '$http', function($scope, $h
 }]);
 
 petsApp.controller('AddPetsController', ['$scope', '$http', function($scope, $http) {
+    $scope.addSuccess = false;
     $scope.addPet = function() {
         var newPet = {
             name: $scope.nameIn,
