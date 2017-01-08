@@ -20,3 +20,5 @@ app.listen(app.get('port'), function() {
 });
 
 app.use(express.static('public'));
+
+module.exports = app;

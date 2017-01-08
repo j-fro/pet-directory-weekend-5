@@ -1,5 +1,13 @@
 Usage
 =====
+A directory of pet information and photos.
+* The home page directs users toward adding new pets and viewing existing ones:
+![Home view](readme-imgs/home.png)
+* Add a new pet by supplying it's name, age, type, and a public url of a photo:
+![Add view](readme-imgs/add.png)
+* View pets to see sortable, filterable tiles of pet info and pictures:
+![View pets view](readme-imgs/view.png)
+
 
 Technologies
 ============

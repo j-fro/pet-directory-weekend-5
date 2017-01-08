@@ -1,0 +1,24 @@
+/* Extra small devices (phones, up to 480px) */
+@media screen and (max-width: 767px) {
+    body {
+        font-size: 3em;
+    }
+}
+/* Small devices (tablets, 768px and up) */
+@media (min-width: 768px) and (max-width: 991px) {
+    body {
+        font-size: 3em;
+    }
+}
+/* tablets/desktops and up ----------- */
+@media (min-width: 992px) and (max-width: 1199px) {
+    body {
+        font-size: 2em;
+    }
+}
+/* large desktops and up ----------- */
+@media screen and (min-width: 1200px) {
+    body {
+        font-size:2em;
+    }
+}

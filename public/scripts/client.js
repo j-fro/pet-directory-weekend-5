@@ -20,6 +20,7 @@ petsApp.config(['$routeProvider', function($routeProvider) {
 }]);
 
 petsApp.controller('ShowPetsController', ['$scope', '$http', function($scope, $http) {
+    // Get pets from the server and add to $scope.pets
     $scope.getPets = function() {
         $http.get('/pets')
             .then(function(results) {
@@ -29,6 +30,7 @@ petsApp.controller('ShowPetsController', ['$scope', '$http', function($scope, $h
             });
     };
 
+    // Request the server delete a pet from the db (by _id)
     $scope.deletePet = function(petId) {
         $http.delete('/pets/' + petId)
             .then(function(results) {
@@ -37,12 +39,15 @@ petsApp.controller('ShowPetsController', ['$scope', '$http', function($scope, $h
             });
     };
 
+    // Sort pets by selected sort type and direction (1 or -1)
     $scope.sortPets = function(direction) {
         console.log('Sorting by:', $scope.sortType, direction);
         $scope.pets = $scope.pets.sort(function(a, b) {
             if (a[$scope.sortType] > b[$scope.sortType]) {
+                // Flips if direction is -1
                 return 1 * direction;
             } else if (a[$scope.sortType] < b[$scope.sortType]) {
+                // Flips if direction is -1
                 return -1 * direction;
             }
             return 0;
@@ -54,7 +59,9 @@ petsApp.controller('ShowPetsController', ['$scope', '$http', function($scope, $h
 }]);
 
 petsApp.controller('AddPetsController', ['$scope', '$http', function($scope, $http) {
+    // Track success state for confirmation display
     $scope.addSuccess = false;
+    // Send a new pet's info to the server to be added to the db
     $scope.addPet = function() {
         var newPet = {
             name: $scope.nameIn,
@@ -67,10 +74,12 @@ petsApp.controller('AddPetsController', ['$scope', '$http', function($scope, $ht
             .then(function(results) {
                 console.log('Back from server:', results);
                 if (results.status === 200) {
+                    // Clear the input fields on successful insertion
                     $scope.nameIn = undefined;
                     $scope.animalIn = undefined;
                     $scope.ageIn = undefined;
                     $scope.imgUrlIn = undefined;
+                    // Show confirmation to user
                     $scope.addSuccess = true;
                 }
             });
