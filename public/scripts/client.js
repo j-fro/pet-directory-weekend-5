@@ -46,6 +46,18 @@ petsApp.controller('ShowPetsController', ['$scope', '$http', function($scope, $h
         });
     };
 
+    $scope.sortPets = function(direction) {
+        console.log('Sorting by:', $scope.sortType, direction);
+        $scope.pets = $scope.pets.sort(function(a, b) {
+            if (a[$scope.sortType] > b[$scope.sortType]) {
+                return 1 * direction;
+            } else if (a[$scope.sortType] < b[$scope.sortType]) {
+                return -1 * direction;
+            }
+            return 0;
+        });
+    };
+
     // Perform initial getPets() on page load
     $scope.getPets();
 }]);
